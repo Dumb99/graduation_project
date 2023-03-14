@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baiyun.asstorage.mapper.AsNeighborMapper">
+
+    <insert id="saveBatchAsNeighbor">
+        INSERT INTO `adj_as`(`key_as`,`nhb_as`) VALUES
+        <foreach collection="list" separator="," item="item">
+            (#{item.keyAs},#{item.nhbAs})
+        </foreach>
+    </insert>
+    
+    <select id="selectByKey" resultType="com.baiyun.asstorage.dto.AsNeighborDTO">
+        SELECT * FROM `adj_as` WHERE key_as = #{key}
+    </select>
+
+    <select id="selectBatchByKeys" resultType="com.baiyun.asstorage.dto.AsNeighborDTO">
+        SELECT * FROM `adj_as` WHERE key_as IN
+        <foreach collection="list" separator="," item="item" open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <update id="updateBatchAsNeighbor">
+        UPDATE `adj_as` SET nhb_as = CASE
+        <foreach collection="list" separator=" " item="item">
+            WHEN key_as = #{item.keyAs} THEN #{item.nhbAs}
+        </foreach>
+        END
+        WHERE key_as IN
+        <foreach collection="list" separator="," open="(" close=")" item="item">
+            #{item.keyAs}
+        </foreach>
+    </update>
+
+    <update id="updateLocation">
+        UPDATE `adj_as` SET loc = 1
+        WHERE key_as IN
+        <foreach collection="list" separator="," open="(" close=")" item="item">
+            #{item}
+        </foreach>
+    </update>
+
+    <update id="updateP2p" parameterType="map">
+        <foreach collection="map" index="key" item="value" separator=";">
+            UPDATE `adj_as`
+            SET p2p = #{value}
+            WHERE key_as = #{key}
+        </foreach>;
+    </update>
+
+    <update id="updateP2c" parameterType="java.util.Map">
+        <foreach collection="map.entrySet()" index="key" item="value" separator=";">
+            UPDATE `adj_as`
+            SET p2c = #{value}
+            WHERE key_as = #{key}
+        </foreach>;
+    </update>
+
+
+</mapper>

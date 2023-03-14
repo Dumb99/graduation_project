@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baiyun.asstorage.mapper.AsPathMapper">
+
+    <select id="selectByStatus" resultType="com.baiyun.asstorage.dto.AsPathDTO">
+        SELECT * FROM basic_as WHERE status between 0 and 11 limit 5000
+    </select>
+
+    <select id="updateStatusById">
+        UPDATE basic_as SET status = 12 WHERE id IN
+        <foreach collection="list" separator="," item="item" open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="resetStatus">
+        UPDATE basic_as SET status = 0 WHERE status = 1
+    </select>
+
+    <select id="statusCount" resultType="map">
+        SELECT status, count(*) FROM basic_as Group by status
+    </select>
+
+</mapper>
