@@ -1,0 +1,37 @@
+[
+  {
+    "name": "batch",
+    "path": "/batch",
+    "component": "/home/baiyun/Documents/workspace/frontends/pages/batch/index.vue",
+    "chunkName": "pages/batch/index",
+    "_name": "_acff310a"
+  },
+  {
+    "name": "history",
+    "path": "/history",
+    "component": "/home/baiyun/Documents/workspace/frontends/pages/history/index.vue",
+    "chunkName": "pages/history/index",
+    "_name": "_62d43ad5"
+  },
+  {
+    "name": "topology",
+    "path": "/topology",
+    "component": "/home/baiyun/Documents/workspace/frontends/pages/topology/index.vue",
+    "chunkName": "pages/topology/index",
+    "_name": "_3a739764"
+  },
+  {
+    "name": "history-index copy",
+    "path": "/history/index%20copy",
+    "component": "/home/baiyun/Documents/workspace/frontends/pages/history/index copy.vue",
+    "chunkName": "pages/history/index copy",
+    "_name": "_9e38d4e0"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/baiyun/Documents/workspace/frontends/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_68c3c090"
+  }
+]

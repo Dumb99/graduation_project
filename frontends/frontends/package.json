@@ -1,0 +1,26 @@
+{
+  "name": "bgp_checking",
+  "version": "1.0.0",
+  "description": "路由路径异常检测",
+  "author": "180400304DCQ",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt  --port 8888",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-vue": "^4.0.0"
+  }
+}
